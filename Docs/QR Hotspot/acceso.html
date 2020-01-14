@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login QR</title>
+	</head>
+	<body>
+		<form name="login" action="$(link-login-only)" method="post" >
+				<input type="hidden" name="dst" value="www.google.com" />
+				<input type="hidden" name="popup" value="true" />
+	  
+				<input id="user" name="username" type="hidden" />
+				<input id="pass" name="password" type="hidden" />
+			</form>
+		
+
+		<script type="text/javascript">
+		 	function getUrlVars() {
+				var vars = {};
+				var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+					vars[key] = value;
+				});
+				return vars;
+			}
+		</script>
+
+		<script type="text/javascript">
+			window.onload = function()
+			{
+				var Data = getUrlVars();
+				//alert(Data['usr']);
+				//alert(Data['pwd']);
+
+				//<input type="hidden" name="dst" value="$(link-orig)" />
+
+				document.login.username.value = Data['usr'];
+				document.login.password.value = Data['pwd'];
+				document.login.submit();
+
+				//alert("Datos cargados!");
+			}
+		</script>
+
+	</body>
+</html>
